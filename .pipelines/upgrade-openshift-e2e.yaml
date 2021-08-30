@@ -1,0 +1,21 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+stages:
+  - stage: run_openshift_upgrade_e2e
+    jobs:
+      - job: test_openshift_upgrade_e2e
+        pool: staging-pool
+        workspace:
+          clean: all
+        steps:
+          - template: templates/package-helm-chart.yaml
+          - template: templates/publish-helm-chart.yaml
+          - bash: ./scripts/test-openshift-upgrade.sh
