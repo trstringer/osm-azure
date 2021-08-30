@@ -26,4 +26,7 @@ stages:
           - template: templates/install-oras.yaml
           - template: templates/package-helm-chart.yaml
           - template: templates/publish-helm-chart.yaml
+            parameters:
+              releaseTag: "True"
           - bash: ./scripts/test-openshift-upgrade.sh
+          - template: templates/acr-cleanup.yaml
