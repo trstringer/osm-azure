@@ -8,6 +8,12 @@ pr:
     include:
       - main
 
+variables:
+  chart.name: osm-arc
+  chart.path: $(System.DefaultWorkingDirectory)/charts/$(chart.name)
+  image.dir: $(Build.ArtifactStagingDirectory)
+  image.artifact.name: drop
+
 stages:
   - stage: run_openshift_upgrade_e2e
     jobs:
