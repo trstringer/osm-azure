@@ -17,7 +17,7 @@ resource_name() {
 
 LOCATION="eastus"
 ARC_LOCATION="eastus2euap"
-PREFIX="thstringaro"
+PREFIX="arcosmaro"
 RESOURCEGROUP=${ARO_RESOURCE_NAME:-$(resource_name "$PREFIX")}
 CLUSTER="$RESOURCEGROUP"
 
