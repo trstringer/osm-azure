@@ -5,7 +5,7 @@ parameters:
 
 steps: 
   - bash: |
-      az login --identity > /dev/null 2>&1
+      az login --identity
       az acr login --name $(REGISTRY_NAME) > /dev/null 2>&1
     displayName: Login to acr
     env: 
