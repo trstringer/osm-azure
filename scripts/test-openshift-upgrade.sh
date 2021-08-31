@@ -41,7 +41,8 @@ if [[ -z "$SKIP_PREP" ]]; then
     echo "$(date) - Creating resource group"
     az group create \
       --name "$RESOURCEGROUP" \
-      --location "$LOCATION"
+      --location "$LOCATION" \
+      --tags "team=osmarc"
 
     echo "$(date) - Creating vnet"
     az network vnet create \

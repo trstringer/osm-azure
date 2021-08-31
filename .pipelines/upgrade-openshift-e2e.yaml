@@ -30,3 +30,8 @@ stages:
               releaseTag: "True"
           - bash: ./scripts/test-openshift-upgrade.sh
           - template: templates/acr-cleanup.yaml
+          - bash: |
+              az group list --query "[?tags.team == 'osmarc'].name" -o tsv |
+                  xargs -rn 1 az group delete -y --no-wait -n
+            displayName: Delete OSM Arc testing resource groups
+            condition: always()
