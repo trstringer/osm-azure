@@ -5,10 +5,6 @@ set -aeo pipefail
 
 # shellcheck disable=SC1091
 
-if [[ -z "$ARC_ARO_DEV" ]]; then
-    az login --identity > /dev/null 2>&1
-fi
-
 resource_name() {
     local PREFIX
     PREFIX="$1"
