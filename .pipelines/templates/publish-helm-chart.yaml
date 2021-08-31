@@ -9,7 +9,7 @@ steps:
       az account show
       az acr login --name $(REGISTRY_NAME) > /dev/null 2>&1
     displayName: Login to acr
-    env: 
+    env:
       REGISTRY_NAME: $(REGISTRY_NAME)
   - script: |
       cp $(image.dir)/$(chart.name)-*.tgz .
